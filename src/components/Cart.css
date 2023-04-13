@@ -1,0 +1,13 @@
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* width: 300px;  */
+  height: 100%; /* Cover the entire height of the viewport */
+  z-index: 999; /* Ensure the element is on top of everything else */
+  transition: all 0.5s;
+}
+
+.cart.hidden {
+  right: -100%; 
+}
