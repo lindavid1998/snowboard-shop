@@ -1,5 +1,21 @@
+import './Home.css';
+import { Link } from 'react-router-dom';
+
 function Home() {
-	return <div>Home</div>;
+	return (
+		<div className='Home'>
+			<div className='overlay'>
+				<div className='hero-text'>Spring Collection</div>
+				<div className='hero-subtext'>
+					Keep the party going with gear built for spring’s sun, slush, and good
+					times.
+				</div>
+				<Link to='/shop'>
+					<button className='btn-filled'>Shop Now</button>
+				</Link>
+			</div>
+		</div>
+	);
 }
 
 export default Home;

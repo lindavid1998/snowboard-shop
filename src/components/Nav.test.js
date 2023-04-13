@@ -6,7 +6,7 @@ import App from '../App';
 import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
 
-describe.only('Nav', () => {
+describe('Nav', () => {
 	test('renders links and routes properly', async () => {
 		render(
 			<Router>

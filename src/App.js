@@ -11,22 +11,24 @@ function App() {
 	const [cart, setCart] = useState([]);
 	const [isCartVisible, setIsCartVisible] = useState(false);
 
-  const openCart = () => {
-    setIsCartVisible(true);
-  }
+	const openCart = () => {
+		setIsCartVisible(true);
+	};
 
-  const hideCart = () => {
-    setIsCartVisible(false);
-  }
+	const hideCart = () => {
+		setIsCartVisible(false);
+	};
 
 	return (
 		<Router>
-			<Nav openCart={openCart} />
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/shop' element={<Shop />} />
-			</Routes>
-			<Cart cart={cart} isVisible={isCartVisible} hideCart={hideCart}></Cart>
+			<div className='App'>
+				<Nav openCart={openCart} />
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/shop' element={<Shop />} />
+				</Routes>
+				<Cart cart={cart} isVisible={isCartVisible} hideCart={hideCart}></Cart>
+			</div>
 		</Router>
 	);
 }
