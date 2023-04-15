@@ -6,14 +6,14 @@ const data = [
 		id: 0,
 		name: 'Season Kin Snowboard 2023',
 		price: 349.3,
-		category: 'snowboard',
+		category: 'boards',
 		imgSrc: seasonKinImg,
 	},
 	{
 		id: 1,
 		name: 'GNU Young Money C2E Snowboard - Big Boys 2023',
 		price: 279.99,
-		category: 'snowboard',
+		category: 'boards',
 		imgSrc: gnuYoungMoneyImg,
 	},
 	// ...
