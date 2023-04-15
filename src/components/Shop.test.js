@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Shop from './Shop';
 import '@testing-library/jest-dom';
-import { act } from 'react-dom/test-utils';
 
 describe('Shop', () => {
 	test('displays subcategories as menu bar', () => {

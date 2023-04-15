@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly 1`] = `
+<div
+  className="Home"
+>
+  <div
+    className="overlay"
+  >
+    <div
+      className="hero-text"
+    >
+      Spring Collection
+    </div>
+    <div
+      className="hero-subtext"
+    >
+      Keep the party going with gear built for spring’s sun, slush, and good times.
+    </div>
+    <a
+      href="/shop"
+      onClick={[Function]}
+    >
+      <button
+        className="btn-filled"
+      >
+        Shop Now
+      </button>
+    </a>
+  </div>
+</div>
+`;
