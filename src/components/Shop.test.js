@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Shop from './Shop';
 import '@testing-library/jest-dom';
@@ -15,72 +15,48 @@ describe('Shop', () => {
 		expect(menuBar[3].textContent).toMatch(/bindings/i);
 	});
 
-	test('displays all items on default view', () => {
-		const mockItems = [
-			{
-				id: 0,
-				category: 'boots',
-			},
-			{
-				id: 1,
-				category: 'boards',
-			},
-			{
-				id: 2,
-				category: 'bindings',
-			},
-			{
-				id: 3,
-				category: 'boards',
-			},
-		];
-
-		render(<Shop items={mockItems}></Shop>);
-
-		const items = screen.getByTestId('items').children;
-		expect(items.length).toBe(mockItems.length);
-	});
-
-	test('displays items based on category chosen', () => {
-		const mockItems = [
-			{
-				id: 0,
-				category: 'boots',
-			},
-			{
-				id: 1,
-				category: 'boards',
-			},
-			{
-				id: 2,
-				category: 'bindings',
-			},
-			{
-				id: 3,
-				category: 'boards',
-			},
-		];
-
-		render(<Shop items={mockItems} categoryShown='boards'></Shop>);
-		const items = screen.getByTestId('items').children;
-		expect(items.length).toBe(2);
-	});
-
-	test('calls onClickMenu correct number of times with correct inputs', async () => {
-		const mockHandler = jest.fn();
+	test('displays items based on category chosen', async () => {
 		const user = userEvent.setup();
+		const mockItems = [
+			{
+				id: 0,
+				category: 'boots',
+			},
+			{
+				id: 1,
+				category: 'boards',
+			},
+			{
+				id: 2,
+				category: 'bindings',
+			},
+			{
+				id: 3,
+				category: 'boards',
+			},
+		];
 
-		render(<Shop onClickMenu={mockHandler} />);
+		render(<Shop items={mockItems} />);
+		expect(screen.getByTestId('items').children.length).toBe(4);
 
-		const menu = ['All', 'Boards', 'Boots', 'Bindings'];
-		for (let i = 0; i < menu.length; i++) {
-			await user.click(screen.getByText(menu[i]));
-		}
+		await waitFor(() => {
+			user.click(screen.getByText('Bindings'));
+			expect(screen.getByTestId('items').children.length).toBe(1);
+		});
 
-		expect(mockHandler).toHaveBeenCalledTimes(4);
-		expect(mockHandler).toHaveBeenNthCalledWith(1, 'All');
-		expect(mockHandler).toHaveBeenNthCalledWith(2, 'Boards');
-		expect(mockHandler).toHaveBeenNthCalledWith(3, 'Boots');
-		expect(mockHandler).toHaveBeenNthCalledWith(4, 'Bindings');
+		await waitFor(() => {
+			user.click(screen.getByText('Boards'));
+			expect(screen.getByTestId('items').children.length).toBe(2);
+		});
+
+		await waitFor(() => {
+			user.click(screen.getByText('Boots'));
+			expect(screen.getByTestId('items').children.length).toBe(1);
+		});
+
+		await waitFor(() => {
+			user.click(screen.getByText('All'));
+			expect(screen.getByTestId('items').children.length).toBe(4);
+		});
 	});
 });

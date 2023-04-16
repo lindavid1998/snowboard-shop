@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Shop(props) {
-	const { categoryShown, items, onClickMenu } = props;
+	const [category, setCategory] = useState('all');
+	const { items } = props;
 
 	const menu = ['All', 'Boards', 'Boots', 'Bindings'];
 	const renderedMenuBar = menu.map((tab, i) => (
-		<li key={i} onClick={(e) => onClickMenu(e.target.textContent)}>
+		<li
+			key={i}
+			onClick={(e) => setCategory(e.target.textContent.toLowerCase())}
+		>
 			{tab}
 		</li>
 	));
 
-	let filteredItems;
-	if (categoryShown === 'All') {
-		filteredItems = [...items];
-	} else {
-		filteredItems = items.filter((item) => item.category === categoryShown);
-	}
+	const filteredItems =
+		category === 'all'
+			? [...items]
+			: items.filter((item) => item.category === category);
 
 	const renderedItems = filteredItems.map((item) => (
 		<li key={item.id}>{item.id}</li>
@@ -35,6 +37,5 @@ export default function Shop(props) {
 }
 
 Shop.defaultProps = {
-	categoryShown: 'All',
 	items: [],
 };

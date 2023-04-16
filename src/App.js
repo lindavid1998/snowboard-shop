@@ -10,7 +10,7 @@ import Home from './components/Home';
 function App() {
 	const [cart, setCart] = useState([]);
 	const [isCartVisible, setIsCartVisible] = useState(false);
-	const [category, setCategory] = useState('All');
+	// const [category, setCategory] = useState('All');
 
 	const openCart = () => {
 		setIsCartVisible(true);
@@ -20,9 +20,9 @@ function App() {
 		setIsCartVisible(false);
 	};
 
-	const updateCategory = (category) => {
-		setCategory(category.toLowerCase());
-	};
+	// const updateCategory = (category) => {
+	// 	setCategory(category.toLowerCase());
+	// };
 
 	return (
 		<Router>
@@ -34,9 +34,9 @@ function App() {
 						path='/shop'
 						element={
 							<Shop
-								categoryShown={category}
+								// categoryShown={category}
 								items={items}
-								onClickMenu={updateCategory}
+								// onClickMenu={updateCategory}
 							/>
 						}
 					/>
