@@ -17,17 +17,6 @@ describe('Home', () => {
 		expect(home).toMatchSnapshot();
 	});
 
-	// test(`contains a 'shop now' button`, () => {
-	// 	render(
-	// 		<Router>
-	// 			<Home />
-	// 		</Router>
-	// 	);
-
-	// 	const button = screen.getByRole('button', { name: /shop now/i });
-	// 	expect(button.textContent).toBe('Shop Now');
-	// });
-
 	test(`routes to shop page when 'shop now' is clicked`, async () => {
 		render(
 			<Router>

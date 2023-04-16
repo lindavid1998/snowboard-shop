@@ -41,6 +41,31 @@ describe('Shop', () => {
 		expect(items.length).toBe(mockItems.length);
 	});
 
+	test('displays items based on category chosen', () => {
+		const mockItems = [
+			{
+				id: 0,
+				category: 'boots',
+			},
+			{
+				id: 1,
+				category: 'boards',
+			},
+			{
+				id: 2,
+				category: 'bindings',
+			},
+			{
+				id: 3,
+				category: 'boards',
+			},
+		];
+
+		render(<Shop items={mockItems} categoryShown='boards'></Shop>);
+		const items = screen.getByTestId('items').children;
+		expect(items.length).toBe(2);
+	});
+
 	test('calls onClickMenu correct number of times with correct inputs', async () => {
 		const mockHandler = jest.fn();
 		const user = userEvent.setup();
