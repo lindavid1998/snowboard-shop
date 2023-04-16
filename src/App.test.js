@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
 
 describe('App', () => {
-	test('shows cart when cart is clicked', async () => {
+	test('shows and hides cart', async () => {
 		render(<App />);
 
 		const user = userEvent.setup();
@@ -17,5 +17,12 @@ describe('App', () => {
 			await user.click(cartBtn);
 		});
 		expect(cart).toHaveClass('cart');
+
+		const closeBtn = screen.getByRole('button', { name: /close/i });
+		await act(async () => {
+			await user.click(closeBtn);
+		});
+
+		expect(cart).toHaveClass('cart hidden');
 	});
 });
