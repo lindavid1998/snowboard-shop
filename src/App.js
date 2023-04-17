@@ -39,7 +39,7 @@ function App(props) {
 					path='/shop'
 					element={<Shop items={items} addToCart={addToCart} />}
 				/>
-				<Route path='/checkout' element={<Checkout cart={cart} />}></Route>
+				<Route path='/checkout' element={<Checkout cart={cart} removeFromCart={removeFromCart} />}></Route>
 			</Routes>
 			<Cart
 				cart={cart}

@@ -1,14 +1,17 @@
 import '../styles/Cart.css';
 import { Link } from 'react-router-dom';
+import CartItem from './CartItem';
 
 function Cart(props) {
 	const { cart, isVisible, hideCart, removeFromCart } = props;
 
 	const renderedCart = cart.map((item) => (
-		<li key={item.id} id={item.id} data-testid='cart-item'>
-			<div className='item-name'>{item.name}</div>
-			<button onClick={() => removeFromCart(item.id)}>Remove</button>
-		</li>
+		<CartItem
+			item={item}
+			key={item.id}
+			className='cart-item'
+			removeFromCart={removeFromCart}
+		/>
 	));
 
 	return (
