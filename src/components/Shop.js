@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import ShopItem from './ShopItem';
 
 export default function Shop(props) {
 	const [category, setCategory] = useState('all');
-	const { items } = props;
+	const { items, handleAddToCart } = props;
 
 	const menu = ['All', 'Boards', 'Boots', 'Bindings'];
 	const renderedMenuBar = menu.map((tab, i) => (
@@ -20,7 +21,9 @@ export default function Shop(props) {
 			: items.filter((item) => item.category === category);
 
 	const renderedItems = filteredItems.map((item) => (
-		<li key={item.id}>{item.id}</li>
+		<li key={item.id}>
+			<ShopItem item={item} handleAddToCart={handleAddToCart}></ShopItem>
+		</li>
 	));
 
 	return (

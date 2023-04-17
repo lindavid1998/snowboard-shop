@@ -1,5 +1,14 @@
 import React from 'react';
 
 export default function ShopItem(props) {
-	return <div className='ShopItem'></div>;
+	const { item, handleAddToCart } = props;
+
+	return (
+		<div className='ShopItem' id={item.id}>
+			<img src={item.imgSrc} alt={item.name} />
+			<div className='name'>{item.name}</div>
+			<div className='price'>${item.price}</div>
+			<button onClick={() => handleAddToCart(item.id)}>Add to cart</button>
+		</div>
+	);
 }

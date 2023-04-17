@@ -2,11 +2,8 @@ import '../styles/Cart.css';
 
 function Cart(props) {
 	const { cart, isVisible, hideCart } = props;
-
-	let renderedCart;
-	if (cart) {
-		renderedCart = cart.map((item) => <li key={item.id}>{item.name}</li>);
-	}
+	
+	const renderedCart = cart.map((item) => <li key={item.id}>{item.name}</li>);
 
 	return (
 		<div
