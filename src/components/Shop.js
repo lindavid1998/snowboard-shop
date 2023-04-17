@@ -3,7 +3,7 @@ import ShopItem from './ShopItem';
 
 export default function Shop(props) {
 	const [category, setCategory] = useState('all');
-	const { items, handleAddToCart } = props;
+	const { items, addToCart } = props;
 
 	const menu = ['All', 'Boards', 'Boots', 'Bindings'];
 	const renderedMenuBar = menu.map((tab, i) => (
@@ -22,7 +22,7 @@ export default function Shop(props) {
 
 	const renderedItems = filteredItems.map((item) => (
 		<li key={item.id}>
-			<ShopItem item={item} handleAddToCart={handleAddToCart}></ShopItem>
+			<ShopItem item={item} addToCart={addToCart}></ShopItem>
 		</li>
 	));
 

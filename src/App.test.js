@@ -10,24 +10,24 @@ describe('App', () => {
 		render(<App />, { wrapper: BrowserRouter });
 
 		const user = userEvent.setup();
-		const cart = screen.getByTestId('cart-component');
+		const cart = screen.getByTestId('cart');
 		const cartBtn = screen.getByRole('listitem', { name: /cart/i });
 
-		expect(cart).toHaveClass('cart hidden');
+		expect(cart).toHaveClass('Cart hidden');
 		await act(async () => {
 			await user.click(cartBtn);
 		});
-		expect(cart).toHaveClass('cart');
+		expect(cart).toHaveClass('Cart');
 
 		const closeBtn = screen.getByRole('button', { name: /close/i });
 		await act(async () => {
 			await user.click(closeBtn);
 		});
 
-		expect(cart).toHaveClass('cart hidden');
+		expect(cart).toHaveClass('Cart hidden');
 	});
 
-	test('adds items to cart', async () => {
+	test('adds and removes items from cart', async () => {
 		const user = userEvent.setup();
 		const mockItems = [
 			{
@@ -47,16 +47,27 @@ describe('App', () => {
 		);
 
 		const items = screen.getByTestId('items').children;
-		const addToCartBtn = within(items[0]).getByText('Add to cart');
+		let cartItems;
+
 		await act(async () => {
-			await user.click(addToCartBtn);
+			await user.click(within(items[0]).getByText('Add to cart'));
 		});
-
-		const cart = screen.getByTestId('cart-component');
-		const cartItems = within(cart).getAllByRole('listitem');
+		cartItems = screen.getAllByTestId('cart-item');
 		expect(cartItems.length).toBe(1);
-		expect(cartItems[0].textContent).toMatch('item one');
-	});
+		expect(Number(cartItems[0].id)).toEqual(0);
 
-	test.todo('removes items from cart');
+		await act(async () => {
+			await user.click(within(items[1]).getByText('Add to cart'));
+		});
+		cartItems = screen.getAllByTestId('cart-item');
+		expect(cartItems.length).toBe(2);
+		expect(Number(cartItems[1].id)).toEqual(1);
+
+		await act(async () => {
+			await user.click(within(cartItems[0]).getByRole('button'));
+		});
+		cartItems = screen.getAllByTestId('cart-item');
+		expect(cartItems.length).toBe(1);
+		expect(Number(cartItems[0].id)).toEqual(1);
+	});
 });

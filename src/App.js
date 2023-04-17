@@ -19,9 +19,14 @@ function App(props) {
 		setIsCartVisible(false);
 	};
 
-	const handleAddToCart = (itemID) => {
+	const addToCart = (itemID) => {
 		let item = items.find((item) => item.id === itemID);
 		setCart(cart.concat([item]));
+	};
+
+	const removeFromCart = (itemID) => {
+		let newCart = cart.filter(item => item.id !== itemID);
+		setCart(newCart);
 	};
 
 	return (
@@ -31,10 +36,15 @@ function App(props) {
 				<Route path='/' element={<Home />} />
 				<Route
 					path='/shop'
-					element={<Shop items={items} handleAddToCart={handleAddToCart} />}
+					element={<Shop items={items} addToCart={addToCart} />}
 				/>
 			</Routes>
-			<Cart cart={cart} isVisible={isCartVisible} hideCart={hideCart}></Cart>
+			<Cart
+				cart={cart}
+				isVisible={isCartVisible}
+				hideCart={hideCart}
+				removeFromCart={removeFromCart}
+			/>
 		</div>
 	);
 }

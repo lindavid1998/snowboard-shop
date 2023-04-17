@@ -33,7 +33,7 @@ describe('ShopItem', () => {
 		};
 		const mockFn = jest.fn();
 		const user = userEvent.setup();
-		render(<ShopItem item={mockItem} handleAddToCart={mockFn} />);
+		render(<ShopItem item={mockItem} addToCart={mockFn} />);
 
 		await act(async () => {
 			await user.click(screen.getByRole('button'));
