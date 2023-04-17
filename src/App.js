@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
 import Home from './components/Home';
+import Checkout from './components/Checkout';
 
 function App(props) {
 	const { items } = props;
@@ -38,6 +39,7 @@ function App(props) {
 					path='/shop'
 					element={<Shop items={items} addToCart={addToCart} />}
 				/>
+				<Route path='/checkout' element={<Checkout cart={cart} />}></Route>
 			</Routes>
 			<Cart
 				cart={cart}

@@ -1,4 +1,5 @@
 import '../styles/Cart.css';
+import { Link } from 'react-router-dom';
 
 function Cart(props) {
 	const { cart, isVisible, hideCart, removeFromCart } = props;
@@ -11,12 +12,12 @@ function Cart(props) {
 	));
 
 	return (
-		<div
-			className={isVisible ? 'Cart' : 'Cart hidden'}
-			data-testid='cart'
-		>
+		<div className={isVisible ? 'Cart' : 'Cart hidden'} data-testid='cart'>
 			<button onClick={hideCart}>Close</button>
 			{cart && renderedCart}
+			<Link to='/checkout'>
+				<button>Checkout</button>
+			</Link>
 		</div>
 	);
 }
