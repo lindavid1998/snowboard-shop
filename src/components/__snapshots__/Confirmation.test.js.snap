@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Confirmation renders thank you message 1`] = `
+<div
+  className="Confirmation"
+>
+  <div>
+    Your order is confirmed!
+  </div>
+  <div>
+    Thank you
+  </div>
+  <a
+    href="/shop"
+    onClick={[Function]}
+  >
+    <button
+      className="btn-filled"
+    >
+      Shop More
+    </button>
+  </a>
+</div>
+`;

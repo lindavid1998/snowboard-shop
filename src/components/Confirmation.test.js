@@ -1,12 +1,33 @@
 import { render, screen } from '@testing-library/react';
-import Checkout from './Checkout';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
+import Confirmation from './Confirmation';
 
 describe('Confirmation', () => {
-  test.todo('renders thank you message')
+  test('renders thank you message', () => {
+		const page = renderer
+			.create(
+				<Router>
+					<Confirmation />
+				</Router>
+			)
+			.toJSON();
+		expect(page).toMatchSnapshot();
+	});
 
-	test.todo('routes to shop page');
+  test('routes to shop page', async () => {
+    const user = userEvent.setup();
+    render(
+			<Router>
+				<Confirmation />
+			</Router>
+    );
+    
+    await act(async () => {
+      await user.click(screen.getByText(/shop more/i));
+		});
+		expect(window.location.pathname).toBe('/shop');
+  });
 });
