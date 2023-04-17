@@ -6,6 +6,7 @@ import Shop from './components/Shop';
 import Cart from './components/Cart';
 import Home from './components/Home';
 import Checkout from './components/Checkout';
+import Confirmation from './components/Confirmation';
 
 function App(props) {
 	const { items } = props;
@@ -39,7 +40,14 @@ function App(props) {
 					path='/shop'
 					element={<Shop items={items} addToCart={addToCart} />}
 				/>
-				<Route path='/checkout' element={<Checkout cart={cart} removeFromCart={removeFromCart} />}></Route>
+				<Route
+					path='/checkout'
+					element={<Checkout cart={cart} removeFromCart={removeFromCart} />}
+				/>
+				<Route
+					path='/confirmation'
+					element={<Confirmation />}
+				/>
 			</Routes>
 			<Cart
 				cart={cart}

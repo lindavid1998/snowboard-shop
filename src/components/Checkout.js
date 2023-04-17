@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItem from './CartItem';
+import { Link } from 'react-router-dom';
 
 export default function Checkout(props) {
 	const { cart, removeFromCart } = props;
@@ -53,13 +54,24 @@ export default function Checkout(props) {
 			<legend>Cart</legend>
 			{cart.map((item) => (
 				<CartItem
-          item={item}
-          key={item.id}
+					item={item}
+					key={item.id}
 					className='cart-item checkout'
 					removeFromCart={removeFromCart}
 				/>
 			))}
 		</fieldset>
+  );
+  
+  const totalPrice = cart.reduce((acc, cur) => acc + cur.price, 0)
+
+  const orderSummary = (
+		<div className='order-summary'>
+			<div className='total'>Total: {`$${totalPrice}`}</div>
+			<Link to='/confirmation'>
+				<input type='submit' value='Place Order' />
+			</Link>
+		</div>
 	);
 
 	return (
@@ -68,7 +80,7 @@ export default function Checkout(props) {
 				{deliveryInfo}
 				{paymentInfo}
 				{items}
-				<input type='submit' value='Place Order' />
+        {orderSummary}
 			</form>
 		</div>
 	);
