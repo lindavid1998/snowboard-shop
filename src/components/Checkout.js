@@ -1,9 +1,8 @@
 import React from 'react';
 import CartItem from './CartItem';
-import { Link } from 'react-router-dom';
 
 export default function Checkout(props) {
-	const { cart, removeFromCart } = props;
+	const { cart, removeFromCart, submitOrder } = props;
 
 	const deliveryInfo = (
 		<fieldset>
@@ -61,26 +60,24 @@ export default function Checkout(props) {
 				/>
 			))}
 		</fieldset>
-  );
-  
-  const totalPrice = cart.reduce((acc, cur) => acc + cur.price, 0)
+	);
 
-  const orderSummary = (
+	const totalPrice = cart.reduce((acc, cur) => acc + cur.price, 0);
+
+	const orderSummary = (
 		<div className='order-summary'>
 			<div className='total'>Total: {`$${totalPrice}`}</div>
-			<Link to='/confirmation'>
-				<input type='submit' value='Place Order' />
-			</Link>
+			<input type='submit' value='Place Order' />
 		</div>
 	);
 
 	return (
 		<div className='Checkout'>
-			<form action=''>
+			<form onSubmit={submitOrder}>
 				{deliveryInfo}
 				{paymentInfo}
 				{items}
-        {orderSummary}
+				{orderSummary}
 			</form>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Nav from './components/Nav';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
@@ -12,6 +12,8 @@ function App(props) {
 	const { items } = props;
 	const [cart, setCart] = useState([]);
 	const [isCartVisible, setIsCartVisible] = useState(false);
+
+	const navigate = useNavigate();
 
 	const openCart = () => {
 		setIsCartVisible(true);
@@ -27,8 +29,14 @@ function App(props) {
 	};
 
 	const removeFromCart = (itemID) => {
-		let newCart = cart.filter(item => item.id !== itemID);
+		let newCart = cart.filter((item) => item.id !== itemID);
 		setCart(newCart);
+	};
+
+	const submitOrder = (e) => {
+		e.preventDefault();
+		setCart([]);
+		navigate('/confirmation');
 	};
 
 	return (
@@ -42,12 +50,15 @@ function App(props) {
 				/>
 				<Route
 					path='/checkout'
-					element={<Checkout cart={cart} removeFromCart={removeFromCart} />}
+					element={
+						<Checkout
+							cart={cart}
+							removeFromCart={removeFromCart}
+							submitOrder={submitOrder}
+						/>
+					}
 				/>
-				<Route
-					path='/confirmation'
-					element={<Confirmation />}
-				/>
+				<Route path='/confirmation' element={<Confirmation />} />
 			</Routes>
 			<Cart
 				cart={cart}

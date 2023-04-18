@@ -4,9 +4,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
 <div
   className="Checkout"
 >
-  <form
-    action=""
-  >
+  <form>
     <fieldset>
       <legend>
         Delivery
@@ -187,15 +185,10 @@ exports[`Checkout renders cart items and payment form 1`] = `
         Total: 
         $629.29
       </div>
-      <a
-        href="/confirmation"
-        onClick={[Function]}
-      >
-        <input
-          type="submit"
-          value="Place Order"
-        />
-      </a>
+      <input
+        type="submit"
+        value="Place Order"
+      />
     </div>
   </form>
 </div>

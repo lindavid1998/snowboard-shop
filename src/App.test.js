@@ -70,4 +70,60 @@ describe('App', () => {
 		expect(cartItems.length).toBe(1);
 		expect(Number(cartItems[0].id)).toEqual(1);
 	});
+
+	test('clears cart when order is placed', async () => {
+		const user = userEvent.setup();
+		const mockItems = [
+			{
+				name: 'item one',
+				id: 0,
+			},
+			{
+				name: 'item two',
+				id: 1,
+			},
+		];
+		
+		render(
+			<MemoryRouter initialEntries={['/shop']}>
+				<App items={mockItems} />
+			</MemoryRouter>
+		);
+
+		// add item to cart
+		const items = screen.getByTestId('items').children;
+		await act(async () => {
+			await user.click(within(items[0]).getByText('Add to cart'));
+		});
+
+		// click checkout
+		await act(async () => {
+			await user.click(screen.getByText(/checkout/i));
+		});
+
+		// click place order
+		await act(async () => {
+			await user.click(screen.getByText(/place order/i));
+		});
+
+		// assert that cart is empty
+		expect(screen.queryByTestId('cart-item')).toBeFalsy();
+	});
+
+	test('routes to confirmation page when order is placed', async () => {
+		const user = userEvent.setup();
+		render(
+			<MemoryRouter initialEntries={['/checkout']}>
+				<App items={[]} />
+			</MemoryRouter>
+		);
+
+		expect(screen.getByText(/place order/i)).toBeInTheDocument();
+
+		await act(async () => {
+			await user.click(screen.getByText(/place order/i));
+		});
+
+		expect(screen.getByText(/your order is confirmed/i)).toBeInTheDocument();
+	});
 });

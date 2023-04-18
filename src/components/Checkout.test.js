@@ -31,7 +31,7 @@ describe('Checkout', () => {
 		expect(checkout).toMatchSnapshot();
 	});
 
-  test('shows correct total price', () => {
+	test('shows correct total price', () => {
 		const mockCart = [
 			{
 				id: 0,
@@ -49,34 +49,22 @@ describe('Checkout', () => {
 			<BrowserRouter>
 				<Checkout cart={mockCart} />
 			</BrowserRouter>
-    );
-  
-    expect(screen.getByText(/total/i).textContent).toBe('Total: $30')
+		);
+
+		expect(screen.getByText(/total/i).textContent).toBe('Total: $30');
 	});
 
-  test('routes to confirmation page when order is placed', async () => {
-    const user = userEvent.setup();
-    // render page
-    const mockCart = [
-			{
-				id: 0,
-				name: 'item-one',
-				price: 10,
-			}
-		];
+	test('triggers form submission when order is placed', async () => {
+		const mockFn = jest.fn(e => e.preventDefault());
+		const user = userEvent.setup();
+		render(<Checkout submitOrder={mockFn} cart={[]} />);
 
-		render(
-			<BrowserRouter>
-				<Checkout cart={mockCart} />
-			</BrowserRouter>
-    );
-    
-    await act(async () => {
-      await user.click(screen.getByText(/place order/i));
+		await act(async () => {
+			await user.click(screen.getByText(/place order/i));
 		});
-		expect(window.location.pathname).toBe('/confirmation');
 
-  });
+		expect(mockFn).toHaveBeenCalledTimes(1);
+	});
 
 	test.todo('can adjust quantities');
 });
