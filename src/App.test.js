@@ -55,6 +55,7 @@ describe('App', () => {
 		cartItems = screen.getAllByTestId('cart-item');
 		expect(cartItems.length).toBe(1);
 		expect(Number(cartItems[0].id)).toEqual(0);
+		expect(screen.getByText(/1/)).toBeTruthy();
 
 		await act(async () => {
 			await user.click(within(items[1]).getByText('Add to cart'));
@@ -62,6 +63,7 @@ describe('App', () => {
 		cartItems = screen.getAllByTestId('cart-item');
 		expect(cartItems.length).toBe(2);
 		expect(Number(cartItems[1].id)).toEqual(1);
+		expect(screen.getByText(/2/)).toBeTruthy();
 
 		await act(async () => {
 			await user.click(within(cartItems[0]).getByRole('button'));
@@ -69,6 +71,7 @@ describe('App', () => {
 		cartItems = screen.getAllByTestId('cart-item');
 		expect(cartItems.length).toBe(1);
 		expect(Number(cartItems[0].id)).toEqual(1);
+		expect(screen.getByText(/1/)).toBeTruthy();
 	});
 
 	test('clears cart when order is placed', async () => {
@@ -83,7 +86,7 @@ describe('App', () => {
 				id: 1,
 			},
 		];
-		
+
 		render(
 			<MemoryRouter initialEntries={['/shop']}>
 				<App items={mockItems} />
@@ -108,6 +111,7 @@ describe('App', () => {
 
 		// assert that cart is empty
 		expect(screen.queryByTestId('cart-item')).toBeFalsy();
+		expect(screen.getByText(/0/)).toBeTruthy();
 	});
 
 	test('routes to confirmation page when order is placed', async () => {

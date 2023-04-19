@@ -34,4 +34,15 @@ describe('Nav', () => {
 		});
 		expect(window.location.pathname).toBe('/');
 	});
+
+	test('shows items in cart', () => {
+		const numOfItems = 3;
+		render(
+			<Router>
+				<Nav numOfItemsInCart={numOfItems} />
+			</Router>
+		);
+
+		expect(screen.getByText(/3/)).toBeTruthy();
+	});
 });

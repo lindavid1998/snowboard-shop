@@ -2,13 +2,23 @@
   position: fixed;
   top: 0;
   right: 0;
-  /* width: 300px;  */
-  height: 100%; /* Cover the entire height of the viewport */
-  z-index: 999; /* Ensure the element is on top of everything else */
+  height: 100%; 
+  z-index: 999; 
   transition: all 0.5s;
   background-color: black;
 }
 
 .Cart.hidden {
   right: -100%; 
+}
+
+.num-of-items {
+  font-size: 0.8rem;  
+  background-color: rgb(145, 0, 0);
+  border-radius: 0.8rem;
+  padding: 0.2rem;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  bottom: 8px;
 }

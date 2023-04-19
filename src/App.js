@@ -41,7 +41,7 @@ function App(props) {
 
 	return (
 		<div className='App'>
-			<Nav openCart={openCart} />
+			<Nav openCart={openCart} numOfItemsInCart={cart.length} />
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route
