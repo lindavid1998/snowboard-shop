@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ShopItem from './ShopItem';
-import '../styles/Shop.css'
+import '../styles/Shop.css';
 
 export default function Shop(props) {
 	const [category, setCategory] = useState('all');
@@ -10,7 +10,13 @@ export default function Shop(props) {
 	const renderedMenuBar = menu.map((tab, i) => (
 		<li
 			key={i}
-			onClick={(e) => setCategory(e.target.textContent.toLowerCase())}
+			className={tab === 'All' ? 'menu-bar-tab active' : 'menu-bar-tab'}
+			onClick={(e) => {
+				setCategory(e.target.textContent.toLowerCase());
+				let siblings = e.target.parentNode.childNodes;
+				siblings.forEach((sibling) => sibling.classList.remove('active'));
+				e.target.classList.add('active');
+			}}
 		>
 			{tab}
 		</li>

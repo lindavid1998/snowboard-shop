@@ -1,5 +1,52 @@
+:root {
+  --menu-tab-color: rgb(152, 152, 152);
+}
+
+.menu-bar-tab {
+  color: var(--menu-tab-color);
+  padding: var(--menu-tab-padding);
+  border-right: var(--menu-tab-border);
+}
+
+.Shop {
+	display: flex;
+  gap: 10rem;
+  padding: 2% 5%;
+}
+
 .Shop ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.Shop .items {
+  display: grid;
+  grid-template-rows: auto; 
+  grid-gap: 10px;
+  flex-grow: 1;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+.menu-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-bar-tab {
+  color: var(--menu-tab-color);
+  padding: 0.6rem 2rem;
+  border-right: 2px solid var(--menu-tab-color);
+  width: 8rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.menu-bar-tab:hover {
+  color: white;
+}
+
+.menu-bar-tab.active {
+  border-right: 2px solid white;
+  color: white;
 }
