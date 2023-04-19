@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ShopItem from './ShopItem';
+import '../styles/Shop.css'
 
 export default function Shop(props) {
 	const [category, setCategory] = useState('all');

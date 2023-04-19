@@ -22,18 +22,3 @@
   font-size: 1.2rem;
   margin-bottom: 3rem;
 }
-
-.btn-filled {
-  background-color: black;
-  padding: 14px;
-  color: white;
-  font-weight: bold;
-  align-self: start;  
-  transition: all 0.25s ease-in-out;
-}
-
-.btn-filled:hover {
-  color: black;
-  background-color: white;
-  transform: translateY(-5px);
-}
