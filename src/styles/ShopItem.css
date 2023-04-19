@@ -17,6 +17,8 @@
   width: 100%;
   height: auto;
   object-fit: contain;
+  aspect-ratio: 1 / 1;
+  background-color: #f2f2f2;
 }
 
 .btn-shop-item {
