@@ -28,7 +28,7 @@ function Nav(props) {
 					onClick={openCart}
 				>
 					Cart
-					<span className='num-of-items'>{numOfItemsInCart}</span>
+					<span className='num-of-items' data-testid='num-of-items'>{numOfItemsInCart}</span>
 				</li>
 			</ul>
 		</nav>

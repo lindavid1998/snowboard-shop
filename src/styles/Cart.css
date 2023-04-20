@@ -6,7 +6,8 @@
   z-index: 999; 
   transition: all 0.5s ease-in-out;
   background-color: black;
-  width: fit-content;
+  /* width: fit-content; */
+  width: 26rem;
   padding: 2.5rem 1rem 0 0;
   display: flex;
   flex-direction: column;
@@ -50,4 +51,11 @@
 .btn-checkout:hover {
   background-color: rgb(0, 159, 19);
   color: white;
+}
+
+.empty-cart-message {
+  color: gray;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 4rem;
 }

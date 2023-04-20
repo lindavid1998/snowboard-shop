@@ -4,9 +4,10 @@ import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
+import renderer from 'react-test-renderer';
 
 describe('Cart', () => {
-	test('renders cart items', async () => {
+	test('renders items, price, and checkout button if cart is not empty', async () => {
 		const mockCart = [
 			{
 				id: 0,
@@ -21,14 +22,16 @@ describe('Cart', () => {
 				category: 'boards',
 			},
 		];
-		render(
-			<BrowserRouter>
-				<Cart cart={mockCart} />
-			</BrowserRouter>
-		);
 
-		const cart = screen.getAllByRole('listitem');
-		expect(cart.length).toBe(2);
+		const cart = renderer
+			.create(
+				<BrowserRouter>
+					<Cart cart={mockCart} />
+				</BrowserRouter>
+			)
+			.toJSON();
+		
+		expect(cart).toMatchSnapshot();
 	});
 
 	test('routes to checkout page', async () => {
@@ -57,9 +60,18 @@ describe('Cart', () => {
 		// simulate click on checkout
 		await act(async () => {
 			await user.click(screen.getByText('Checkout'));
-		})
-		
+		});
+
 		// verify routing
 		expect(window.location.pathname).toBe('/checkout');
+	});
+
+	test('renders message if cart is empty', () => {
+		render(
+			<BrowserRouter>
+				<Cart cart={[]} />
+			</BrowserRouter>
+		);
+		expect(screen.getByText(/your cart is empty/i)).toBeTruthy()
 	});
 });
