@@ -9,7 +9,7 @@ function Cart(props) {
 
 	const totalPrice = (
 		<div className='total-price'>
-			${cart.reduce((acc, cur) => acc + cur.price, 0)}
+			Total: ${cart.reduce((acc, cur) => acc + cur.price, 0)}
 		</div>
 	);
 

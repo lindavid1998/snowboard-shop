@@ -6,12 +6,12 @@
   z-index: 999; 
   transition: all 0.5s ease-in-out;
   background-color: black;
-  /* width: fit-content; */
-  width: 26rem;
-  padding: 2.5rem 1rem 0 0;
+  width: 29rem;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  padding: 2.5rem 2rem 1rem 2rem;
+  gap: 1rem;
 }
 
 .Cart.hidden {
@@ -58,4 +58,9 @@
   font-size: 1.4rem;
   text-align: center;
   margin-bottom: 4rem;
+}
+
+.total-price {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
