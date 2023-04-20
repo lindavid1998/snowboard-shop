@@ -1,4 +1,4 @@
-.item {
+.item-card {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
@@ -6,15 +6,15 @@
   position: relative;
 }
 
-.item-name {
+.item-card .item-name {
   font-weight: bold;
 }
 
-.item-price {
+.item-card .item-price {
   color: rgb(178, 178, 178);
 }
 
-.item img {
+.item-card img {
   height: auto;
   object-fit: contain;
   aspect-ratio: 1 / 1;

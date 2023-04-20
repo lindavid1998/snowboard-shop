@@ -132,7 +132,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
         Cart
       </legend>
       <li
-        className="CartItem item"
+        className="CartItem item-card"
         data-testid="cart-item"
         id={0}
       >
@@ -162,7 +162,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
         </button>
       </li>
       <li
-        className="CartItem item"
+        className="CartItem item-card"
         data-testid="cart-item"
         id={1}
       >

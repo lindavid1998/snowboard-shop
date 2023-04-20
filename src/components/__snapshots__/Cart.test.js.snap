@@ -24,7 +24,7 @@ exports[`Cart renders items, price, and checkout button if cart is not empty 1`]
     />
   </svg>
   <li
-    className="CartItem item"
+    className="CartItem item-card"
     data-testid="cart-item"
     id={0}
   >
@@ -54,7 +54,7 @@ exports[`Cart renders items, price, and checkout button if cart is not empty 1`]
     </button>
   </li>
   <li
-    className="CartItem item"
+    className="CartItem item-card"
     data-testid="cart-item"
     id={1}
   >
@@ -86,7 +86,7 @@ exports[`Cart renders items, price, and checkout button if cart is not empty 1`]
   <div
     className="total-price"
   >
-    $
+    Total: $
     629.29
   </div>
   <button

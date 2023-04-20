@@ -3,10 +3,15 @@ import userEvent from '@testing-library/user-event';
 import Shop from './Shop';
 import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('Shop', () => {
 	test('displays subcategories as menu bar', () => {
-		render(<Shop />);
+		render(
+			<Router>
+				<Shop />
+			</Router>
+		);
 
 		const menuBar = screen.getByTestId('menu-bar').children;
 		expect(menuBar.length).toBe(4);
@@ -37,7 +42,11 @@ describe('Shop', () => {
 			},
 		];
 
-		render(<Shop items={mockItems} />);
+		render(
+			<Router>
+				<Shop items={mockItems} />
+			</Router>
+		);
 		expect(screen.getByTestId('items').children.length).toBe(4);
 
 		await waitFor(() => {
@@ -63,7 +72,11 @@ describe('Shop', () => {
 
 	test('shows active tab with styling', async () => {
 		const user = userEvent.setup();
-		render(<Shop items={[]} />);
+		render(
+			<Router>
+				<Shop items={[]} />
+			</Router>
+		);
 
 		// assert that 'all' is default styled as active
 		expect(screen.getByText(/all/i)).toHaveClass('active');

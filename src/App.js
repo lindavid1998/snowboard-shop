@@ -7,6 +7,7 @@ import Cart from './components/Cart';
 import Home from './components/Home';
 import Checkout from './components/Checkout';
 import Confirmation from './components/Confirmation';
+import ItemDetail from './components/ItemDetail';
 
 function App(props) {
 	const { items } = props;
@@ -17,7 +18,6 @@ function App(props) {
 
 	const openCart = () => {
 		setIsCartVisible(true);
-
 	};
 
 	const hideCart = () => {
@@ -49,6 +49,7 @@ function App(props) {
 					path='/shop'
 					element={<Shop items={items} addToCart={addToCart} />}
 				/>
+				<Route path='/shop/:id' element={<ItemDetail />} />
 				<Route
 					path='/checkout'
 					element={

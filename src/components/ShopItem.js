@@ -1,16 +1,27 @@
 import React from 'react';
 import '../styles/ShopItem.css'
-import '../styles/Item.css'
+import '../styles/item-card.css'
+import { Link } from 'react-router-dom';
 
 export default function ShopItem(props) {
 	const { item, addToCart } = props;
 
 	return (
-		<div className='ShopItem item' id={item.id}>
+		<div className='ShopItem item-card' id={item.id}>
 			<img src={item.imgSrc} alt={item.name} />
-			<div className='item-name'>{item.name}</div>
+
+			<Link to={`/shop/${item.id}`}>
+				<div className='item-name'>{item.name}</div>
+			</Link>
+
 			<div className='item-price'>${item.price}</div>
-			<button className='btn-filled btn-small btn-shop-item' onClick={() => addToCart(item.id)}>Add to cart</button>
+
+			<button
+				className='btn-filled btn-small btn-shop-item'
+				onClick={() => addToCart(item.id)}
+			>
+				Add to cart
+			</button>
 		</div>
 	);
 }
