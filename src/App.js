@@ -17,6 +17,7 @@ function App(props) {
 
 	const openCart = () => {
 		setIsCartVisible(true);
+
 	};
 
 	const hideCart = () => {
@@ -40,7 +41,7 @@ function App(props) {
 	};
 
 	return (
-		<div className='App'>
+		<div className={isCartVisible ? 'App dimmed' : 'App'}>
 			<Nav openCart={openCart} numOfItemsInCart={cart.length} />
 			<Routes>
 				<Route path='/' element={<Home />} />

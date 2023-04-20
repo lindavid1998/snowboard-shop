@@ -52,7 +52,6 @@ a:active {
 .btn-filled:hover {
 	color: black;
 	background-color: white;
-	/* transform: translateY(-5px); */
 }
 
 .btn-medium {
