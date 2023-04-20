@@ -1,0 +1,22 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0rem 1rem 1rem 1rem;
+  position: relative;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.item-price {
+  color: rgb(178, 178, 178);
+}
+
+.item img {
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: 1 / 1;
+  background-color: #f2f2f2;
+}

@@ -33,6 +33,14 @@ a:active {
 	text-decoration: none;
 }
 
+.btn-translate-on-hover {
+	transition: all 0.25s ease-in-out;
+}
+
+.btn-translate-on-hover:hover {
+	transform: translateY(-5px);
+}
+
 .btn-filled {
 	background-color: black;
 	color: white;
@@ -44,7 +52,7 @@ a:active {
 .btn-filled:hover {
 	color: black;
 	background-color: white;
-	transform: translateY(-5px);
+	/* transform: translateY(-5px); */
 }
 
 .btn-medium {

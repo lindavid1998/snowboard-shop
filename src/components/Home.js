@@ -11,7 +11,9 @@ function Home() {
 					times.
 				</div>
 				<Link to='/shop'>
-					<button className='btn-filled btn-medium'>Shop Now</button>
+					<button className='btn-translate-on-hover btn-filled btn-medium'>
+						Shop Now
+					</button>
 				</Link>
 			</div>
 		</div>

@@ -1,11 +1,22 @@
+import '../styles/CartItem.css';
+import '../styles/Item.css'
+
 function CartItem(props) {
-	const { item, className, removeFromCart } = props;
+	const { item, removeFromCart } = props;
 
 	return (
-		<li className={className} id={item.id} data-testid='cart-item'>
-			<div className='item-name'>{item.name}</div>
-			<div className='item-price'>${item.price}</div>
-			<button onClick={() => removeFromCart(item.id)}>Remove</button>
+		<li className='CartItem item' id={item.id} data-testid='cart-item'>
+			<div className='info'>
+				<div className='item-name'>{item.name}</div>
+				<div className='item-price'>${item.price}</div>
+			</div>
+			<img src={item.imgSrc} alt={item.name} />
+			<button
+				className='btn-filled btn-remove-from-cart'
+				onClick={() => removeFromCart(item.id)}
+			>
+				Remove
+			</button>
 		</li>
 	);
 }

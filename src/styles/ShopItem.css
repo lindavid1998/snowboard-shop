@@ -1,24 +1,11 @@
 .ShopItem {
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-  padding: 0rem 1rem 1rem 1rem;
   width: 18rem;
   height: 25rem;
-  position: relative;
-}
-
-.ShopItem .name {
-  font-weight: bold;
 }
 
 .ShopItem img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  aspect-ratio: 1 / 1;
-  background-color: #f2f2f2;
 }
 
 .btn-shop-item {

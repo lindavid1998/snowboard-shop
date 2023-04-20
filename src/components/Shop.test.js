@@ -62,7 +62,6 @@ describe('Shop', () => {
 	});
 
 	test('shows active tab with styling', async () => {
-		// render page
 		const user = userEvent.setup();
 		render(<Shop items={[]} />);
 

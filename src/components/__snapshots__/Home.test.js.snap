@@ -22,7 +22,7 @@ exports[`Home renders correctly 1`] = `
       onClick={[Function]}
     >
       <button
-        className="btn-filled btn-medium"
+        className="btn-translate-on-hover btn-filled btn-medium"
       >
         Shop Now
       </button>

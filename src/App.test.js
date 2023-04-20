@@ -19,7 +19,7 @@ describe('App', () => {
 		});
 		expect(cart).toHaveClass('Cart');
 
-		const closeBtn = screen.getByRole('button', { name: /close/i });
+		const closeBtn = screen.getByTestId('btn-close-cart')
 		await act(async () => {
 			await user.click(closeBtn);
 		});
