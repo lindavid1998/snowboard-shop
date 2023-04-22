@@ -11,16 +11,18 @@ function CartItem(props) {
 					{item.name}
 				</div>
 				<div className='item-price'>${item.price}</div>
-				<label htmlFor='quantity'>Qty:</label>
-				<input
-					type='number'
-					id='quantity'
-					name='quantity'
-					min='1'
-					value={item.quantity}
-					data-testid='quantity'
-					onChange={(e) => updateQuantity(item.id, e.target.value)}
-				/>
+				<div className='quantity-input'>
+					<label htmlFor='quantity'>Qty:</label>
+					<input
+						type='number'
+						id='quantity'
+						name='quantity'
+						min='1'
+						value={item.quantity}
+						data-testid='quantity'
+						onChange={(e) => updateQuantity(item.id, e.target.value)}
+					/>
+				</div>
 			</div>
 			<img src={item.imgSrc} alt={item.name} />
 			<button
