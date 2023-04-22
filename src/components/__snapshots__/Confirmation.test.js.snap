@@ -4,18 +4,18 @@ exports[`Confirmation renders thank you message 1`] = `
 <div
   className="Confirmation"
 >
-  <div>
+  <h2>
     Your order is confirmed!
-  </div>
-  <div>
+  </h2>
+  <h3>
     Thank you
-  </div>
+  </h3>
   <a
     href="/shop"
     onClick={[Function]}
   >
     <button
-      className="btn-filled"
+      className="btn-translate-on-hover btn-filled btn-medium"
     >
       Shop More
     </button>
