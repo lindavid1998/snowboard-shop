@@ -1,0 +1,34 @@
+.ItemDetail {
+  display: flex;
+  gap: 3rem;
+  padding: 2% 10%;
+}
+
+.ItemDetail img {
+  height: 25rem;
+  object-fit: contain;
+  aspect-ratio: 1 / 1;
+  background-color: #f2f2f2;
+}
+
+.ItemDetail .item-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.delivery-time {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: rgb(178, 178, 178);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ItemDetail button {
+  margin-top: auto;
+  align-self: stretch;
+  width: auto;
+}

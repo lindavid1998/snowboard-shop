@@ -6,11 +6,11 @@
   position: relative;
 }
 
-.item-card .item-name {
+.item-name {
   font-weight: bold;
 }
 
-.item-card .item-price {
+.item-price {
   color: rgb(178, 178, 178);
 }
 

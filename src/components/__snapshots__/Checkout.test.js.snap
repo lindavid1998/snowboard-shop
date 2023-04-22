@@ -191,7 +191,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
           alt="Season Kin Snowboard 2023"
         />
         <button
-          className="btn-filled btn-remove-from-cart"
+          className="btn-filled btn-remove-from-cart btn-orange-text"
           onClick={[Function]}
         >
           Remove
@@ -221,7 +221,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
           alt="GNU Young Money C2E Snowboard - Big Boys 2023"
         />
         <button
-          className="btn-filled btn-remove-from-cart"
+          className="btn-filled btn-remove-from-cart btn-orange-text"
           onClick={[Function]}
         >
           Remove

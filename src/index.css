@@ -25,6 +25,10 @@ button {
 	border: none;
 }
 
+button:hover {
+	cursor: pointer;
+}
+
 a,
 a:visited,
 a:hover,
@@ -62,4 +66,17 @@ a:active {
 	padding: 0.5rem;
 	width: 7rem;
 	height: auto;
+}
+
+.btn-orange-text {
+	color: #ff6600;
+}
+
+.btn-orange-fill {
+	background-color: #ff6600;
+}
+
+.btn-orange-fill:hover {
+	background-color: #ff8533;
+	color: white;
 }

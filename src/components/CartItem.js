@@ -12,7 +12,7 @@ function CartItem(props) {
 			</div>
 			<img src={item.imgSrc} alt={item.name} />
 			<button
-				className='btn-filled btn-remove-from-cart'
+				className='btn-filled btn-remove-from-cart btn-orange-text'
 				onClick={() => removeFromCart(item.id)}
 			>
 				Remove

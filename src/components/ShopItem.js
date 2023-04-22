@@ -17,7 +17,7 @@ export default function ShopItem(props) {
 			<div className='item-price'>${item.price}</div>
 
 			<button
-				className='btn-filled btn-small btn-shop-item'
+				className='btn-filled btn-small btn-shop-item btn-orange-fill'
 				onClick={() => addToCart(item.id)}
 			>
 				Add to cart
