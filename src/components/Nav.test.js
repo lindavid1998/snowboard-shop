@@ -35,11 +35,11 @@ describe('Nav', () => {
 		expect(window.location.pathname).toBe('/');
 	});
 
-	test('shows items in cart', () => {
-		const numOfItems = 3;
+	test('shows number of items in cart', () => {
+		const totalItems = 3;
 		render(
 			<Router>
-				<Nav numOfItemsInCart={numOfItems} />
+				<Nav totalItems={totalItems} />
 			</Router>
 		);
 

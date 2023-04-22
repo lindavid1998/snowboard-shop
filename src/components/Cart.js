@@ -4,17 +4,23 @@ import CartItem from './CartItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-function Cart(props) {
-	const { cart, isVisible, hideCart, removeFromCart } = props;
-
-	const totalPrice = (
-		<div className='total-price'>
-			Total: ${cart.reduce((acc, cur) => acc + cur.price, 0)}
-		</div>
-	);
+export default function Cart(props) {
+	const {
+		cart,
+		isVisible,
+		hideCart,
+		removeFromCart,
+		updateQuantity,
+		totalPrice,
+	} = props;
 
 	const renderedCart = cart.map((item) => (
-		<CartItem item={item} key={item.id} removeFromCart={removeFromCart} />
+		<CartItem
+			item={item}
+			key={item.id}
+			removeFromCart={removeFromCart}
+			updateQuantity={updateQuantity}
+		/>
 	));
 
 	return (
@@ -28,11 +34,11 @@ function Cart(props) {
 			/>
 
 			{cart.length === 0 ? (
-					<div className='empty-cart-message'>Your cart is empty</div>
+				<div className='empty-cart-message'>Your cart is empty</div>
 			) : (
 				<>
 					{renderedCart}
-					{totalPrice}
+					<div className='total-price' data-testid='total-price'>Total: ${totalPrice}</div>
 					<button className='btn-filled btn-checkout'>
 						<Link to='/checkout'>Checkout</Link>
 					</button>
@@ -41,5 +47,3 @@ function Cart(props) {
 		</div>
 	);
 }
-
-export default Cart;

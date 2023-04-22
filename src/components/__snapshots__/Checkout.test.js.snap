@@ -164,6 +164,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
           >
             <div
               className="item-name"
+              data-testid="item-name"
             >
               Season Kin Snowboard 2023
             </div>
@@ -173,6 +174,19 @@ exports[`Checkout renders cart items and payment form 1`] = `
               $
               349.3
             </div>
+            <label
+              htmlFor="quantity"
+            >
+              Qty:
+            </label>
+            <input
+              data-testid="quantity"
+              id="quantity"
+              min="1"
+              name="quantity"
+              onChange={[Function]}
+              type="number"
+            />
           </div>
           <img
             alt="Season Kin Snowboard 2023"
@@ -194,6 +208,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
           >
             <div
               className="item-name"
+              data-testid="item-name"
             >
               GNU Young Money C2E Snowboard - Big Boys 2023
             </div>
@@ -203,6 +218,19 @@ exports[`Checkout renders cart items and payment form 1`] = `
               $
               279.99
             </div>
+            <label
+              htmlFor="quantity"
+            >
+              Qty:
+            </label>
+            <input
+              data-testid="quantity"
+              id="quantity"
+              min="1"
+              name="quantity"
+              onChange={[Function]}
+              type="number"
+            />
           </div>
           <img
             alt="GNU Young Money C2E Snowboard - Big Boys 2023"
@@ -226,7 +254,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
         <div
           className="total-price"
         >
-          $629.29
+          $
         </div>
       </div>
       <button

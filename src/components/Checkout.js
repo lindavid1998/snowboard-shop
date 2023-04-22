@@ -3,7 +3,7 @@ import CartItem from './CartItem';
 import '../styles/Checkout.css';
 
 export default function Checkout(props) {
-	const { cart, removeFromCart, submitOrder } = props;
+	const { cart, removeFromCart, submitOrder, updateQuantity, totalPrice } = props;
 
 	const deliveryInfo = (
 		<fieldset className='delivery-info'>
@@ -68,12 +68,11 @@ export default function Checkout(props) {
 					key={item.id}
 					className='cart-item checkout'
 					removeFromCart={removeFromCart}
+					updateQuantity={updateQuantity}
 				/>
 			))}
 		</fieldset>
 	);
-
-	const totalPrice = cart.reduce((acc, cur) => acc + cur.price, 0);
 
 	return (
 		<div className='Checkout'>
@@ -82,13 +81,13 @@ export default function Checkout(props) {
 					{deliveryInfo}
 					{paymentInfo}
 				</div>
-				
+
 				<div className='order-info'>
 					{items}
 
 					<div className='total'>
 						<div className='total-label'>Total:</div>
-						<div className='total-price'>{`$${totalPrice}`}</div>
+						<div className='total-price'>${totalPrice}</div>
 					</div>
 
 					<button type='submit' className='btn-filled btn-place-order'>

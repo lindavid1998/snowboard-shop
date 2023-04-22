@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import { act } from 'react-dom/test-utils';
@@ -25,60 +25,6 @@ describe('App', () => {
 		});
 
 		expect(cart).toHaveClass('Cart hidden');
-	});
-
-	test('adds and removes items from cart', async () => {
-		const user = userEvent.setup();
-		const mockItems = [
-			{
-				name: 'item one',
-				id: 0,
-			},
-			{
-				name: 'item two',
-				id: 1,
-			},
-		];
-
-		render(
-			<MemoryRouter initialEntries={['/shop/0']}>
-				<App items={mockItems} />
-			</MemoryRouter>
-		);
-
-		await act(async () => {
-			await user.click(screen.getByText('Add to cart'));
-		});
-
-		let cartItems = screen.getAllByTestId('cart-item');
-		expect(cartItems.length).toBe(1);
-		expect(Number(cartItems[0].id)).toEqual(0);
-		expect(screen.getByTestId('num-of-items').textContent).toBe('1');
-
-		await act(async () => {
-			await user.click(screen.getByText('Shop'));
-		});
-
-		await act(async () => {
-			await user.click(screen.getByText('item two'));
-		});
-
-		await act(async () => {
-			await user.click(screen.getByText('Add to cart'));
-		});
-
-		cartItems = screen.getAllByTestId('cart-item');
-		expect(cartItems.length).toBe(2);
-		expect(Number(cartItems[1].id)).toEqual(1);
-		expect(screen.getByTestId('num-of-items').textContent).toBe('2');
-
-		await act(async () => {
-			await user.click(screen.getAllByText('Remove')[0]);
-		});
-		cartItems = screen.getAllByTestId('cart-item');
-		expect(cartItems.length).toBe(1);
-		expect(Number(cartItems[0].id)).toEqual(1);
-		expect(screen.getByTestId('num-of-items').textContent).toBe('1');
 	});
 
 	test('clears cart when order is placed', async () => {
@@ -130,5 +76,168 @@ describe('App', () => {
 		});
 
 		expect(screen.getByText(/your order is confirmed/i)).toBeInTheDocument();
+	});
+
+	test('adds item to cart as new item if it does not already exist in cart', async () => {
+		const user = userEvent.setup();
+		const mockItems = [
+			{
+				name: 'item one',
+				id: 0,
+			},
+			{
+				name: 'item two',
+				id: 1,
+			},
+		];
+		let cartItems;
+		let quantities;
+		let names;
+
+		render(
+			<MemoryRouter initialEntries={['/shop/0']}>
+				<App items={mockItems} />
+			</MemoryRouter>
+		);
+
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+		cartItems = screen.getAllByTestId('cart-item');
+		quantities = screen.getAllByTestId('quantity');
+		names = screen.getAllByTestId('item-name');
+		expect(cartItems.length).toBe(1);
+		expect(names[0].textContent).toBe('item one');
+		expect(quantities[0].value).toBe('1');
+		expect(screen.getByTestId('num-of-items').textContent).toBe('1');
+
+		await act(async () => {
+			await user.click(screen.getByText('Shop'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('item two'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+
+		cartItems = screen.getAllByTestId('cart-item');
+		quantities = screen.getAllByTestId('quantity');
+		names = screen.getAllByTestId('item-name');
+		expect(cartItems.length).toBe(2);
+		expect(names[1].textContent).toBe('item two');
+		expect(quantities[1].value).toBe('1');
+		expect(screen.getByTestId('num-of-items').textContent).toBe('2');
+	});
+
+	test('increases qty of item in cart if it already exists in cart', async () => {
+		const user = userEvent.setup();
+		const mockItems = [
+			{
+				name: 'item one',
+				id: 0,
+			},
+		];
+
+		render(
+			<MemoryRouter initialEntries={['/shop/0']}>
+				<App items={mockItems} />
+			</MemoryRouter>
+		);
+
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+		expect(screen.getByTestId('quantity').value).toBe('1');
+
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+		expect(screen.getAllByTestId('cart-item').length).toBe(1);
+		expect(screen.getByTestId('item-name').textContent).toBe('item one');
+		expect(screen.getByTestId('quantity').value).toBe('2');
+		expect(screen.getByTestId('num-of-items').textContent).toBe('2');
+	});
+
+	test('removes item from cart without removing existing items', async () => {
+		const user = userEvent.setup();
+		const mockItems = [
+			{
+				name: 'item one',
+				id: 0,
+			},
+			{
+				name: 'item two',
+				id: 1,
+			},
+		];
+
+		render(
+			<MemoryRouter initialEntries={['/shop/0']}>
+				<App items={mockItems} />
+			</MemoryRouter>
+		);
+
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('Shop'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('item two'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+		await act(async () => {
+			await user.click(screen.getAllByText('Remove')[0]);
+		});
+		expect(screen.getAllByTestId('cart-item').length).toBe(1);
+		expect(screen.getByTestId('item-name').textContent).toBe('item two');
+		expect(screen.getByTestId('quantity').value).toBe('1');
+		expect(screen.getByTestId('num-of-items').textContent).toBe('1');
+	});
+
+	test('correctly calculates total price in cart', async () => {
+		const user = userEvent.setup();
+		const mockItems = [
+			{
+				id: 0,
+				name: 'item-one',
+				price: 10,
+				qty: 2,
+			},
+			{
+				id: 1,
+				name: 'item-two',
+				price: 20,
+				qty: 1,
+			},
+		];
+
+		render(
+			<MemoryRouter initialEntries={['/shop/0']}>
+				<App items={mockItems} />
+			</MemoryRouter>
+		);
+
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('Shop'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('item-two'));
+		});
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+
+		expect(screen.getByTestId('total-price').textContent).toBe('Total: $40');
 	});
 });

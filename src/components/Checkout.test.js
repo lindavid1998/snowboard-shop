@@ -13,12 +13,14 @@ describe('Checkout', () => {
 				name: 'Season Kin Snowboard 2023',
 				price: 349.3,
 				category: 'boards',
+				qty: 1,
 			},
 			{
 				id: 1,
 				name: 'GNU Young Money C2E Snowboard - Big Boys 2023',
 				price: 279.99,
 				category: 'boards',
+				qty: 2,
 			},
 		];
 		const checkout = renderer
@@ -29,29 +31,6 @@ describe('Checkout', () => {
 			)
 			.toJSON();
 		expect(checkout).toMatchSnapshot();
-	});
-
-	test('shows correct total price', () => {
-		const mockCart = [
-			{
-				id: 0,
-				name: 'item-one',
-				price: 10,
-			},
-			{
-				id: 1,
-				name: 'item-two',
-				price: 20,
-			},
-		];
-
-		render(
-			<BrowserRouter>
-				<Checkout cart={mockCart} />
-			</BrowserRouter>
-		);
-
-		expect(screen.getByText('$30')).toBeTruthy();
 	});
 
 	test('triggers form submission when order is placed', async () => {
@@ -66,5 +45,4 @@ describe('Checkout', () => {
 		expect(mockFn).toHaveBeenCalledTimes(1);
 	});
 
-	test.todo('can adjust quantities');
 });

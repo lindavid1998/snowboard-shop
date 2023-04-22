@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import '../styles/Nav.css';
 
 function Nav(props) {
-	const { openCart, numOfItemsInCart } = props;
+	const { openCart, totalItems } = props;
 	return (
 		<nav className='Nav'>
 			<ul>
@@ -28,7 +28,9 @@ function Nav(props) {
 					onClick={openCart}
 				>
 					Cart
-					<span className='num-of-items' data-testid='num-of-items'>{numOfItemsInCart}</span>
+					<span className='num-of-items' data-testid='num-of-items'>
+						{totalItems}
+					</span>
 				</li>
 			</ul>
 		</nav>
