@@ -4,130 +4,166 @@ exports[`Checkout renders cart items and payment form 1`] = `
 <div
   className="Checkout"
 >
-  <form>
-    <fieldset>
-      <legend>
-        Delivery
-      </legend>
-      <div
-        className="form-row"
+  <form
+    className="checkout-form"
+  >
+    <div
+      className="checkout-info"
+    >
+      <fieldset
+        className="delivery-info"
       >
-        <label
-          htmlFor="name"
+        <legend>
+          Delivery
+        </legend>
+        <div
+          className="form-rows"
         >
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-        />
-      </div>
-      <div
-        className="form-row"
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="name"
+            >
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="name"
+            >
+              Address
+            </label>
+            <input
+              id="address"
+              name="address"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="name"
+            >
+              City
+            </label>
+            <input
+              id="city"
+              name="city"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="name"
+            >
+              State
+            </label>
+            <input
+              id="state"
+              name="state"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="name"
+            >
+              ZIP Code
+            </label>
+            <input
+              id="zip"
+              name="zip"
+              type="text"
+            />
+          </div>
+        </div>
+      </fieldset>
+      <fieldset
+        className="payment-info"
       >
-        <label
-          htmlFor="name"
+        <legend>
+          Payment
+        </legend>
+        <div
+          className="form-rows card-info"
         >
-          Address
-        </label>
-        <input
-          id="address"
-          name="address"
-          type="text"
-        />
-      </div>
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="name"
+            >
+              Name on card
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="name"
+            >
+              Card number
+            </label>
+            <input
+              id="card-number"
+              name="card-number"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="name"
+            >
+              Expiration date
+            </label>
+            <input
+              id="exp-date"
+              name="exp-date"
+              type="text"
+            />
+          </div>
+        </div>
+      </fieldset>
       <div
-        className="form-row"
+        className="order-summary"
       >
-        <label
-          htmlFor="name"
+        <div
+          className="total"
         >
-          City
-        </label>
-        <input
-          id="city"
-          name="city"
-          type="text"
-        />
-      </div>
-      <div
-        className="form-row"
-      >
-        <label
-          htmlFor="name"
+          Total: 
+          $629.29
+        </div>
+        <button
+          className="btn-filled btn-place-order"
+          type="submit"
         >
-          State
-        </label>
-        <input
-          id="state"
-          name="state"
-          type="text"
-        />
+          Place Order
+        </button>
       </div>
-      <div
-        className="form-row"
-      >
-        <label
-          htmlFor="name"
-        >
-          ZIP Code
-        </label>
-        <input
-          id="zip"
-          name="zip"
-          type="text"
-        />
-      </div>
-    </fieldset>
-    <fieldset>
-      <legend>
-        Payment
-      </legend>
-      <div
-        className="form-row"
-      >
-        <label
-          htmlFor="name"
-        >
-          Name on card
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-        />
-      </div>
-      <div
-        className="form-row"
-      >
-        <label
-          htmlFor="name"
-        >
-          Card number
-        </label>
-        <input
-          id="card-number"
-          name="card-number"
-          type="text"
-        />
-      </div>
-      <div
-        className="form-row"
-      >
-        <label
-          htmlFor="name"
-        >
-          Expiration date
-        </label>
-        <input
-          id="exp-date"
-          name="exp-date"
-          type="text"
-        />
-      </div>
-    </fieldset>
-    <fieldset>
+    </div>
+    <fieldset
+      className="checkout-cart-items"
+    >
       <legend>
         Cart
       </legend>
@@ -192,20 +228,6 @@ exports[`Checkout renders cart items and payment form 1`] = `
         </button>
       </li>
     </fieldset>
-    <div
-      className="order-summary"
-    >
-      <div
-        className="total"
-      >
-        Total: 
-        $629.29
-      </div>
-      <input
-        type="submit"
-        value="Place Order"
-      />
-    </div>
   </form>
 </div>
 `;
