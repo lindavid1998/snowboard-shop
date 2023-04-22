@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/snowboard-shop/static/css/main.f7dcc741.css",
+    "main.js": "/snowboard-shop/static/js/main.757a0a13.js",
+    "static/media/spring-ski.webp": "/snowboard-shop/static/media/spring-ski.7a76d207fdcdd13eadf9.webp",
+    "static/media/season_kin_snowboard_2023.webp": "/snowboard-shop/static/media/season_kin_snowboard_2023.156a06fca53d630507ee.webp",
+    "static/media/gnu_young_money_C2E_2023.webp": "/snowboard-shop/static/media/gnu_young_money_C2E_2023.9d5f9a0f761594f24d38.webp",
+    "static/media/burton_photon_step_on_boots.webp": "/snowboard-shop/static/media/burton_photon_step_on_boots.cb9fd6f624c0d7ad5e12.webp",
+    "static/media/burton_step_on_reflex_bindings.webp": "/snowboard-shop/static/media/burton_step_on_reflex_bindings.e0ebee8763e0a3b78de4.webp",
+    "index.html": "/snowboard-shop/index.html",
+    "main.f7dcc741.css.map": "/snowboard-shop/static/css/main.f7dcc741.css.map",
+    "main.757a0a13.js.map": "/snowboard-shop/static/js/main.757a0a13.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7dcc741.css",
+    "static/js/main.757a0a13.js"
+  ]
+}
