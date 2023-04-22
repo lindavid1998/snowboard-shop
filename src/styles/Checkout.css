@@ -61,7 +61,7 @@ input:focus {
 .form-rows {
 	display: grid;
 	grid-template-columns: repeat(2, 300px);
-	gap: 12px;
+	gap: 18px;
 }
 
 .checkout-cart-items {
@@ -96,6 +96,31 @@ input:focus {
 	background-color: rgb(0, 159, 19);
 	color: white;
 	cursor: pointer;
+}
+
+.form-row {
+	position: relative;
+}
+
+.checkout-form input:invalid {
+	border: 1px solid red;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  position: absolute;
+	top: 100%;
+	left: 0;
+	font-size: 0.7rem;
+}
+
+input:invalid + .error-message {
+	display: block;
+}
+
+input[type="month"] {
+  font-family: inherit;
 }
 
 @media screen and (max-width: 880px) {

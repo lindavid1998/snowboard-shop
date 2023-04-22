@@ -43,19 +43,23 @@ exports[`Cart renders items, price, and checkout button if cart is not empty 1`]
         $
         10
       </div>
-      <label
-        htmlFor="quantity"
+      <div
+        className="quantity-input"
       >
-        Qty:
-      </label>
-      <input
-        data-testid="quantity"
-        id="quantity"
-        min="1"
-        name="quantity"
-        onChange={[Function]}
-        type="number"
-      />
+        <label
+          htmlFor="quantity"
+        >
+          Qty:
+        </label>
+        <input
+          data-testid="quantity"
+          id="quantity"
+          min="1"
+          name="quantity"
+          onChange={[Function]}
+          type="number"
+        />
+      </div>
     </div>
     <img
       alt="Season Kin Snowboard 2023"
@@ -87,19 +91,23 @@ exports[`Cart renders items, price, and checkout button if cart is not empty 1`]
         $
         20
       </div>
-      <label
-        htmlFor="quantity"
+      <div
+        className="quantity-input"
       >
-        Qty:
-      </label>
-      <input
-        data-testid="quantity"
-        id="quantity"
-        min="1"
-        name="quantity"
-        onChange={[Function]}
-        type="number"
-      />
+        <label
+          htmlFor="quantity"
+        >
+          Qty:
+        </label>
+        <input
+          data-testid="quantity"
+          id="quantity"
+          min="1"
+          name="quantity"
+          onChange={[Function]}
+          type="number"
+        />
+      </div>
     </div>
     <img
       alt="GNU Young Money C2E Snowboard - Big Boys 2023"

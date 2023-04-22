@@ -3,7 +3,8 @@ import CartItem from './CartItem';
 import '../styles/Checkout.css';
 
 export default function Checkout(props) {
-	const { cart, removeFromCart, submitOrder, updateQuantity, totalPrice } = props;
+	const { cart, removeFromCart, submitOrder, updateQuantity, totalPrice } =
+		props;
 
 	const deliveryInfo = (
 		<fieldset className='delivery-info'>
@@ -15,23 +16,35 @@ export default function Checkout(props) {
 				</div>
 
 				<div className='form-row'>
-					<label htmlFor='name'>Address</label>
+					<label htmlFor='email'>Email</label>
+					<input type='email' id='email' name='email' />
+					<div className='error-message'>Please enter a valid email</div>
+				</div>
+
+				<div className='form-row'>
+					<label htmlFor='address'>Address</label>
 					<input type='text' id='address' name='address' />
 				</div>
 
 				<div className='form-row'>
-					<label htmlFor='name'>City</label>
+					<label htmlFor='city'>City</label>
 					<input type='text' id='city' name='city' />
 				</div>
 
 				<div className='form-row'>
-					<label htmlFor='name'>State</label>
+					<label htmlFor='state'>State</label>
 					<input type='text' id='state' name='state' />
 				</div>
 
 				<div className='form-row'>
-					<label htmlFor='name'>ZIP Code</label>
-					<input type='text' id='zip' name='zip' />
+					<label htmlFor='zip'>ZIP Code</label>
+					<input
+						type='text'
+						id='zip'
+						name='zip'
+						pattern='^\d{5}(?:[-\s]\d{4})?$'
+					/>
+					<div className='error-message'>Please enter a valid ZIP</div>
 				</div>
 			</div>
 		</fieldset>
@@ -42,18 +55,30 @@ export default function Checkout(props) {
 			<legend>Payment</legend>
 			<div className='form-rows card-info'>
 				<div className='form-row'>
-					<label htmlFor='name'>Name on card</label>
-					<input type='text' id='name' name='name' />
+					<label htmlFor='name-on-card'>Name on card</label>
+					<input type='text' id='name' name='name-on-card' />
 				</div>
 
 				<div className='form-row'>
-					<label htmlFor='name'>Card number</label>
-					<input type='text' id='card-number' name='card-number' />
+					<label htmlFor='card-number'>Card number</label>
+					<input
+						type='text'
+						id='card-number'
+						name='card-number'
+						pattern='^[0-9]+$'
+					/>
+					<div className='error-message'>Please enter a valid card number</div>
 				</div>
 
 				<div className='form-row'>
-					<label htmlFor='name'>Expiration date</label>
-					<input type='text' id='exp-date' name='exp-date' />
+					<label for='expiration-date'>Expiration date</label>
+					<input
+						type='month'
+						id='expiration-date'
+						name='expiration-date'
+						min='2023-04'
+						max='2030-12'
+					/>
 				</div>
 			</div>
 		</fieldset>

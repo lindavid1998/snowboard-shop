@@ -37,7 +37,26 @@ exports[`Checkout renders cart items and payment form 1`] = `
             className="form-row"
           >
             <label
-              htmlFor="name"
+              htmlFor="email"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+            />
+            <div
+              className="error-message"
+            >
+              Please enter a valid email
+            </div>
+          </div>
+          <div
+            className="form-row"
+          >
+            <label
+              htmlFor="address"
             >
               Address
             </label>
@@ -51,7 +70,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
             className="form-row"
           >
             <label
-              htmlFor="name"
+              htmlFor="city"
             >
               City
             </label>
@@ -65,7 +84,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
             className="form-row"
           >
             <label
-              htmlFor="name"
+              htmlFor="state"
             >
               State
             </label>
@@ -79,15 +98,21 @@ exports[`Checkout renders cart items and payment form 1`] = `
             className="form-row"
           >
             <label
-              htmlFor="name"
+              htmlFor="zip"
             >
               ZIP Code
             </label>
             <input
               id="zip"
               name="zip"
+              pattern="^\\\\d{5}(?:[-\\\\s]\\\\d{4})?$"
               type="text"
             />
+            <div
+              className="error-message"
+            >
+              Please enter a valid ZIP
+            </div>
           </div>
         </div>
       </fieldset>
@@ -104,13 +129,13 @@ exports[`Checkout renders cart items and payment form 1`] = `
             className="form-row"
           >
             <label
-              htmlFor="name"
+              htmlFor="name-on-card"
             >
               Name on card
             </label>
             <input
               id="name"
-              name="name"
+              name="name-on-card"
               type="text"
             />
           </div>
@@ -118,28 +143,36 @@ exports[`Checkout renders cart items and payment form 1`] = `
             className="form-row"
           >
             <label
-              htmlFor="name"
+              htmlFor="card-number"
             >
               Card number
             </label>
             <input
               id="card-number"
               name="card-number"
+              pattern="^[0-9]+$"
               type="text"
             />
+            <div
+              className="error-message"
+            >
+              Please enter a valid card number
+            </div>
           </div>
           <div
             className="form-row"
           >
             <label
-              htmlFor="name"
+              for="expiration-date"
             >
               Expiration date
             </label>
             <input
-              id="exp-date"
-              name="exp-date"
-              type="text"
+              id="expiration-date"
+              max="2030-12"
+              min="2023-04"
+              name="expiration-date"
+              type="month"
             />
           </div>
         </div>
@@ -174,19 +207,23 @@ exports[`Checkout renders cart items and payment form 1`] = `
               $
               349.3
             </div>
-            <label
-              htmlFor="quantity"
+            <div
+              className="quantity-input"
             >
-              Qty:
-            </label>
-            <input
-              data-testid="quantity"
-              id="quantity"
-              min="1"
-              name="quantity"
-              onChange={[Function]}
-              type="number"
-            />
+              <label
+                htmlFor="quantity"
+              >
+                Qty:
+              </label>
+              <input
+                data-testid="quantity"
+                id="quantity"
+                min="1"
+                name="quantity"
+                onChange={[Function]}
+                type="number"
+              />
+            </div>
           </div>
           <img
             alt="Season Kin Snowboard 2023"
@@ -218,19 +255,23 @@ exports[`Checkout renders cart items and payment form 1`] = `
               $
               279.99
             </div>
-            <label
-              htmlFor="quantity"
+            <div
+              className="quantity-input"
             >
-              Qty:
-            </label>
-            <input
-              data-testid="quantity"
-              id="quantity"
-              min="1"
-              name="quantity"
-              onChange={[Function]}
-              type="number"
-            />
+              <label
+                htmlFor="quantity"
+              >
+                Qty:
+              </label>
+              <input
+                data-testid="quantity"
+                id="quantity"
+                min="1"
+                name="quantity"
+                onChange={[Function]}
+                type="number"
+              />
+            </div>
           </div>
           <img
             alt="GNU Young Money C2E Snowboard - Big Boys 2023"
