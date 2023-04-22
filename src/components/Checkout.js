@@ -71,7 +71,7 @@ export default function Checkout(props) {
 				</div>
 
 				<div className='form-row'>
-					<label for='expiration-date'>Expiration date</label>
+					<label htmlFor='expiration-date'>Expiration date</label>
 					<input
 						type='month'
 						id='expiration-date'
