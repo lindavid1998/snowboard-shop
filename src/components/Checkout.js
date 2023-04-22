@@ -108,7 +108,11 @@ export default function Checkout(props) {
 				</div>
 
 				<div className='order-info'>
-					{items}
+					{cart.length !== 0 ? (
+						items
+					) : (
+						<div className='empty-cart-message'>Your cart is empty</div>
+					)}
 
 					<div className='total'>
 						<div className='total-label'>Total:</div>
