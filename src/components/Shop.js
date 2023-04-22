@@ -28,7 +28,7 @@ export default function Shop(props) {
 			: items.filter((item) => item.category === category);
 
 	const renderedItems = filteredItems.map((item) => (
-		<li key={item.id}>
+		<li className='item' key={item.id}>
 			<ShopItem item={item} addToCart={addToCart}></ShopItem>
 		</li>
 	));

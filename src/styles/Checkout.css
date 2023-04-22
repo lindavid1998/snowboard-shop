@@ -1,33 +1,41 @@
+.Checkout {
+	padding: 3rem;
+}
+
 .checkout-form {
-  padding: 10px 40px 50px 40px;
-  width: fit-content;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  gap: 30px;
+	padding: 10px 40px 50px 40px;
+	width: fit-content;
+	display: flex;
+	gap: 30px;
+	margin: 0 auto;
+	flex-direction: row;
 }
 
 .checkout-cart-items {
-  grid-area: 1 / 2 / -1 / -1;
-  overflow: auto;
+	grid-area: 1 / 2 / -1 / -1;
+	overflow: auto;
 }
 
-.checkout-info {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.customer-info {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
 }
 
 .checkout-form fieldset {
 	border: 0;
-  padding: 0;
+	padding: 0;
 }
 
 .checkout-form legend {
 	font-weight: bold;
 	font-size: 1.2rem;
-  padding: 0;
-  margin-bottom: 10px;
+	padding: 0;
+	margin-bottom: 10px;
+}
+
+.checkout-form label {
+	color: #ccc;
 }
 
 .checkout-form input {
@@ -37,7 +45,7 @@
 	padding: 10px;
 	width: 250px;
 	color: white;
-  transition: 0.25s all ease-in-out;
+	transition: 0.25s all ease-in-out;
 }
 
 input:focus {
@@ -48,7 +56,7 @@ input:focus {
 .form-row label {
 	display: block;
 	margin-bottom: 3px;
-  font-size: 0.8rem;
+	font-size: 0.8rem;
 }
 
 .form-rows {
@@ -58,32 +66,45 @@ input:focus {
 }
 
 .checkout-cart-items {
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
+	display: flex;
+	gap: 20px;
+	flex-direction: column;
 }
 
-.order-summary {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+.order-info {
+	display: flex;
+	flex-direction: column;
+	min-width: 200px;
+	width: auto;
 }
 
 .total {
-  font-size: 1.2rem;
-  font-weight: bold;
+	font-size: 1.2rem;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+	margin: 30px 0;
 }
 
 .btn-place-order {
-  position: relative;
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  right: 30%;
-  background-color: rgb(0, 136, 16);
+	font-size: 1.2rem;
+	padding: 0.5rem;
+	background-color: rgb(0, 136, 16);
+	align-self: stretch;
 }
 
 .btn-place-order:hover {
-  background-color: rgb(0, 159, 19);
-  color: white;
-  cursor: pointer;
+	background-color: rgb(0, 159, 19);
+	color: white;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 880px) {
+	.checkout-form {
+		flex-direction: column;
+	}
+
+	.order-info {
+		width: 25rem;
+	}
 }

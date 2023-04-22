@@ -8,7 +8,7 @@ exports[`Checkout renders cart items and payment form 1`] = `
     className="checkout-form"
   >
     <div
-      className="checkout-info"
+      className="customer-info"
     >
       <fieldset
         className="delivery-info"
@@ -144,90 +144,98 @@ exports[`Checkout renders cart items and payment form 1`] = `
           </div>
         </div>
       </fieldset>
+    </div>
+    <div
+      className="order-info"
+    >
+      <fieldset
+        className="checkout-cart-items"
+      >
+        <legend>
+          Cart
+        </legend>
+        <li
+          className="CartItem item-card"
+          data-testid="cart-item"
+          id={0}
+        >
+          <div
+            className="info"
+          >
+            <div
+              className="item-name"
+            >
+              Season Kin Snowboard 2023
+            </div>
+            <div
+              className="item-price"
+            >
+              $
+              349.3
+            </div>
+          </div>
+          <img
+            alt="Season Kin Snowboard 2023"
+          />
+          <button
+            className="btn-filled btn-remove-from-cart btn-orange-text"
+            onClick={[Function]}
+          >
+            Remove
+          </button>
+        </li>
+        <li
+          className="CartItem item-card"
+          data-testid="cart-item"
+          id={1}
+        >
+          <div
+            className="info"
+          >
+            <div
+              className="item-name"
+            >
+              GNU Young Money C2E Snowboard - Big Boys 2023
+            </div>
+            <div
+              className="item-price"
+            >
+              $
+              279.99
+            </div>
+          </div>
+          <img
+            alt="GNU Young Money C2E Snowboard - Big Boys 2023"
+          />
+          <button
+            className="btn-filled btn-remove-from-cart btn-orange-text"
+            onClick={[Function]}
+          >
+            Remove
+          </button>
+        </li>
+      </fieldset>
       <div
-        className="order-summary"
+        className="total"
       >
         <div
-          className="total"
+          className="total-label"
         >
-          Total: 
+          Total:
+        </div>
+        <div
+          className="total-price"
+        >
           $629.29
         </div>
-        <button
-          className="btn-filled btn-place-order"
-          type="submit"
-        >
-          Place Order
-        </button>
       </div>
+      <button
+        className="btn-filled btn-place-order"
+        type="submit"
+      >
+        Place Order
+      </button>
     </div>
-    <fieldset
-      className="checkout-cart-items"
-    >
-      <legend>
-        Cart
-      </legend>
-      <li
-        className="CartItem item-card"
-        data-testid="cart-item"
-        id={0}
-      >
-        <div
-          className="info"
-        >
-          <div
-            className="item-name"
-          >
-            Season Kin Snowboard 2023
-          </div>
-          <div
-            className="item-price"
-          >
-            $
-            349.3
-          </div>
-        </div>
-        <img
-          alt="Season Kin Snowboard 2023"
-        />
-        <button
-          className="btn-filled btn-remove-from-cart btn-orange-text"
-          onClick={[Function]}
-        >
-          Remove
-        </button>
-      </li>
-      <li
-        className="CartItem item-card"
-        data-testid="cart-item"
-        id={1}
-      >
-        <div
-          className="info"
-        >
-          <div
-            className="item-name"
-          >
-            GNU Young Money C2E Snowboard - Big Boys 2023
-          </div>
-          <div
-            className="item-price"
-          >
-            $
-            279.99
-          </div>
-        </div>
-        <img
-          alt="GNU Young Money C2E Snowboard - Big Boys 2023"
-        />
-        <button
-          className="btn-filled btn-remove-from-cart btn-orange-text"
-          onClick={[Function]}
-        >
-          Remove
-        </button>
-      </li>
-    </fieldset>
   </form>
 </div>
 `;

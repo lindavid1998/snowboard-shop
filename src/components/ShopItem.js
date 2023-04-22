@@ -4,7 +4,7 @@ import '../styles/item-card.css'
 import { Link } from 'react-router-dom';
 
 export default function ShopItem(props) {
-	const { item, addToCart } = props;
+	const { item } = props;
 
 	return (
 		<div className='ShopItem item-card' id={item.id}>
@@ -15,13 +15,6 @@ export default function ShopItem(props) {
 			</Link>
 
 			<div className='item-price'>${item.price}</div>
-
-			<button
-				className='btn-filled btn-small btn-shop-item btn-orange-fill'
-				onClick={() => addToCart(item.id)}
-			>
-				Add to cart
-			</button>
 		</div>
 	);
 }

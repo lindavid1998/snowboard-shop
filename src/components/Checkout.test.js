@@ -51,7 +51,7 @@ describe('Checkout', () => {
 			</BrowserRouter>
 		);
 
-		expect(screen.getByText(/total/i).textContent).toBe('Total: $30');
+		expect(screen.getByText('$30')).toBeTruthy();
 	});
 
 	test('triggers form submission when order is placed', async () => {

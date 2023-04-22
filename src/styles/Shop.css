@@ -11,7 +11,7 @@
 .Shop {
 	display: flex;
   gap: 10rem;
-  padding: 2% 5%;
+  padding: 3rem 2rem;
 }
 
 .Shop ul {
@@ -21,11 +21,9 @@
 }
 
 .Shop .items {
-  display: grid;
-  grid-template-rows: auto; 
-  grid-gap: 10px;
-  flex-grow: 1;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .menu-bar {
@@ -49,4 +47,8 @@
 .menu-bar-tab.active {
   border-right: 2px solid white;
   color: white;
+}
+
+.item {
+  width: fit-content;
 }

@@ -1,7 +1,6 @@
 .ShopItem {
   flex-direction: column;
   width: 18rem;
-  height: 25rem;
 }
 
 .ShopItem img {

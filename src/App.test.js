@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import { act } from 'react-dom/test-utils';
@@ -19,7 +19,7 @@ describe('App', () => {
 		});
 		expect(cart).toHaveClass('Cart');
 
-		const closeBtn = screen.getByTestId('btn-close-cart')
+		const closeBtn = screen.getByTestId('btn-close-cart');
 		await act(async () => {
 			await user.click(closeBtn);
 		});
@@ -41,37 +41,44 @@ describe('App', () => {
 		];
 
 		render(
-			<MemoryRouter initialEntries={['/shop']}>
+			<MemoryRouter initialEntries={['/shop/0']}>
 				<App items={mockItems} />
 			</MemoryRouter>
 		);
 
-		const items = screen.getByTestId('items').children;
-		let cartItems;
-
 		await act(async () => {
-			await user.click(within(items[0]).getByText('Add to cart'));
+			await user.click(screen.getByText('Add to cart'));
 		});
-		cartItems = screen.getAllByTestId('cart-item');
+
+		let cartItems = screen.getAllByTestId('cart-item');
 		expect(cartItems.length).toBe(1);
 		expect(Number(cartItems[0].id)).toEqual(0);
-		expect(screen.getByText(/1/)).toBeTruthy();
+		expect(screen.getByTestId('num-of-items').textContent).toBe('1');
 
 		await act(async () => {
-			await user.click(within(items[1]).getByText('Add to cart'));
+			await user.click(screen.getByText('Shop'));
 		});
+
+		await act(async () => {
+			await user.click(screen.getByText('item two'));
+		});
+
+		await act(async () => {
+			await user.click(screen.getByText('Add to cart'));
+		});
+
 		cartItems = screen.getAllByTestId('cart-item');
 		expect(cartItems.length).toBe(2);
 		expect(Number(cartItems[1].id)).toEqual(1);
-		expect(screen.getByText(/2/)).toBeTruthy();
+		expect(screen.getByTestId('num-of-items').textContent).toBe('2');
 
 		await act(async () => {
-			await user.click(within(cartItems[0]).getByRole('button'));
+			await user.click(screen.getAllByText('Remove')[0]);
 		});
 		cartItems = screen.getAllByTestId('cart-item');
 		expect(cartItems.length).toBe(1);
 		expect(Number(cartItems[0].id)).toEqual(1);
-		expect(screen.getByText(/1/)).toBeTruthy();
+		expect(screen.getByTestId('num-of-items').textContent).toBe('1');
 	});
 
 	test('clears cart when order is placed', async () => {
@@ -88,28 +95,22 @@ describe('App', () => {
 		];
 
 		render(
-			<MemoryRouter initialEntries={['/shop']}>
+			<MemoryRouter initialEntries={['/shop/0']}>
 				<App items={mockItems} />
 			</MemoryRouter>
 		);
 
-		// add item to cart
-		const items = screen.getByTestId('items').children;
 		await act(async () => {
-			await user.click(within(items[0]).getByText('Add to cart'));
+			await user.click(screen.getByText('Add to cart'));
 		});
 
-		// click checkout
 		await act(async () => {
 			await user.click(screen.getByText(/checkout/i));
 		});
 
-		// click place order
 		await act(async () => {
 			await user.click(screen.getByText(/place order/i));
 		});
-
-		// assert that cart is empty
 		expect(screen.queryByTestId('cart-item')).toBeFalsy();
 		expect(screen.getByText(/0/)).toBeTruthy();
 	});

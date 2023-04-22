@@ -1,11 +1,17 @@
 .ItemDetail {
   display: flex;
   gap: 3rem;
-  padding: 2% 10%;
+  padding: 3em;
+  margin: 0 auto;
+  max-width: 70%;
+  min-width: 590px;
+  width: clamp(590px, 70%, 900px);
 }
 
 .ItemDetail img {
-  height: 25rem;
+  max-width: 400px; 
+  min-width: 200px; 
+  width: 100%; 
   object-fit: contain;
   aspect-ratio: 1 / 1;
   background-color: #f2f2f2;
