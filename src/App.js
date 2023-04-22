@@ -41,7 +41,14 @@ function App(props) {
 	};
 
 	return (
-		<div className={isCartVisible ? 'App dimmed' : 'App'}>
+		<div
+			className={isCartVisible ? 'App dimmed' : 'App'}
+			onClick={(e) => {
+				if (e.target.classList.contains('dimmed')) {
+					hideCart();
+				}
+			}}
+		>
 			<Nav openCart={openCart} numOfItemsInCart={cart.length} />
 			<Routes>
 				<Route path='/' element={<Home />} />
