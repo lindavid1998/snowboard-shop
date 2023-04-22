@@ -39,7 +39,7 @@ export default function Cart(props) {
 				<>
 					{renderedCart}
 					<div className='total-price' data-testid='total-price'>Total: ${totalPrice}</div>
-					<button className='btn-filled btn-checkout'>
+					<button className='btn-filled btn-checkout' onClick={hideCart}>
 						<Link to='/checkout'>Checkout</Link>
 					</button>
 				</>
