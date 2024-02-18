@@ -1,5 +1,5 @@
 .Home {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/spring-ski.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/spring-ski.webp');
 	background-size: cover;
 	background-position: center;
   width: 100%;
@@ -16,9 +16,11 @@
 .hero-text {
   font-size: 1.4rem;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .hero-subtext {
   font-size: 1.2rem;
   margin-bottom: 3rem;
+  max-width: 500px;
 }

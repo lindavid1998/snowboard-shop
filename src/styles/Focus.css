@@ -1,0 +1,27 @@
+.focus {
+	width: 90%;
+  display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+  background-size: cover;
+	background-position: center;
+  padding: 10px;
+  margin: 40px auto;
+  position: relative;
+}
+
+.focus-text {
+  max-width: 400px;
+  color: white;
+  padding: 10px;
+  position: static;
+}
+
+@media screen and (min-width: 800px) {
+  .focus-text {
+    color: black;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+  }
+}

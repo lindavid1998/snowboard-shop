@@ -1,0 +1,18 @@
+.promo {
+	background-image: url('../images/C24-BCorpRenewal-LargePromo-Desktop2.jpg');
+	width: 100%;
+	height: fit-content;
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  background-size: cover;
+	background-position: center;
+  padding: 10px;
+}
+
+.promo-text {
+	color: black;
+	text-align: center;
+  width: 60%;
+}
