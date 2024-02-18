@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/snowboard-shop/static/css/main.38259f97.css",
-    "main.js": "/snowboard-shop/static/js/main.41a21642.js",
+    "main.css": "/snowboard-shop/static/css/main.7dc4103f.css",
+    "main.js": "/snowboard-shop/static/js/main.bd07d612.js",
     "static/media/spring-ski.webp": "/snowboard-shop/static/media/spring-ski.7a76d207fdcdd13eadf9.webp",
     "static/media/season_kin_snowboard_2023.webp": "/snowboard-shop/static/media/season_kin_snowboard_2023.156a06fca53d630507ee.webp",
+    "static/media/HG-Sellthrough-Bindings-HeroBanner-Desktop-IMG.webp": "/snowboard-shop/static/media/HG-Sellthrough-Bindings-HeroBanner-Desktop-IMG.bd5cd2e0363469c0e69b.webp",
     "static/media/gnu_young_money_C2E_2023.webp": "/snowboard-shop/static/media/gnu_young_money_C2E_2023.9d5f9a0f761594f24d38.webp",
     "static/media/burton_photon_step_on_boots.webp": "/snowboard-shop/static/media/burton_photon_step_on_boots.cb9fd6f624c0d7ad5e12.webp",
+    "static/media/C24-BCorpRenewal-LargePromo-Desktop2.jpg": "/snowboard-shop/static/media/C24-BCorpRenewal-LargePromo-Desktop2.3a2843b7e0860d2aa1df.jpg",
     "static/media/burton_step_on_reflex_bindings.webp": "/snowboard-shop/static/media/burton_step_on_reflex_bindings.e0ebee8763e0a3b78de4.webp",
+    "static/media/B-Corp-Logo-Black-RGB.webp": "/snowboard-shop/static/media/B-Corp-Logo-Black-RGB.4b7ddcf6a8923f103f27.webp",
     "index.html": "/snowboard-shop/index.html",
-    "main.38259f97.css.map": "/snowboard-shop/static/css/main.38259f97.css.map",
-    "main.41a21642.js.map": "/snowboard-shop/static/js/main.41a21642.js.map"
+    "main.7dc4103f.css.map": "/snowboard-shop/static/css/main.7dc4103f.css.map",
+    "main.bd07d612.js.map": "/snowboard-shop/static/js/main.bd07d612.js.map"
   },
   "entrypoints": [
-    "static/css/main.38259f97.css",
-    "static/js/main.41a21642.js"
+    "static/css/main.7dc4103f.css",
+    "static/js/main.bd07d612.js"
   ]
 }
